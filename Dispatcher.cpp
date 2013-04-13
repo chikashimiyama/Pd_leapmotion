@@ -1,9 +1,10 @@
 #include "m_pd.h"
 #include "Dispatcher.h"
+
 using namespace Leap;
 
 void Dispatcher::onInit(const Controller& controller) {
-    post("Leap Motion for Pd by Chikashi Miyama Ver 1.0");
+    post("Leap Motion for Pd by Chikashi Miyama Ver 0.1");
 }
 
 void Dispatcher::onConnect(const Controller& controller) {

@@ -172,80 +172,73 @@ public:
             hand = frame.hands()[i];
             int num_fingers = hand.fingers().count();
             int num_tools = hand.tools().count();
-            
+            t_atom handInfo[5];
+
             if(hands_direction_flag){
                 // direction
-                t_atom handDirectionInfo[5];
-                SETFLOAT(&handDirectionInfo[0], i);
-                SETSYMBOL(&handDirectionInfo[1], gensym("direction"));
-                SETFLOAT(&handDirectionInfo[2], hand.direction().x);
-                SETFLOAT(&handDirectionInfo[3], hand.direction().y);
-                SETFLOAT(&handDirectionInfo[4], hand.direction().z);
-                ToOutAnything(1, gensym("hand"), 5, handDirectionInfo);
+                SETFLOAT(&handInfo[0], i);
+                SETSYMBOL(&handInfo[1], gensym("direction"));
+                SETFLOAT(&handInfo[2], hand.direction().x);
+                SETFLOAT(&handInfo[3], hand.direction().y);
+                SETFLOAT(&handInfo[4], hand.direction().z);
+                ToOutAnything(1, gensym("hand"), 5, handInfo);
             }
             if(hands_palm_position_flag){
                 // position
-                t_atom handPalmPositionInfo[5];
-                SETFLOAT(&handPalmPositionInfo[0], i);
-                SETSYMBOL(&handPalmPositionInfo[1], gensym("palm_position"));
-                SETFLOAT(&handPalmPositionInfo[2], hand.palmPosition().x);
-                SETFLOAT(&handPalmPositionInfo[3], hand.palmPosition().y);
-                SETFLOAT(&handPalmPositionInfo[4], hand.palmPosition().z);
-                ToOutAnything(1, gensym("hand"), 5, handPalmPositionInfo);
+                SETFLOAT(&handInfo[0], i);
+                SETSYMBOL(&handInfo[1], gensym("palm_position"));
+                SETFLOAT(&handInfo[2], hand.palmPosition().x);
+                SETFLOAT(&handInfo[3], hand.palmPosition().y);
+                SETFLOAT(&handInfo[4], hand.palmPosition().z);
+                ToOutAnything(1, gensym("hand"), 5, handInfo);
             }
             if(hands_palm_velocity_flag){
                 // velocity
-                t_atom handPalmVelocityInfo[5];
-                SETFLOAT(&handPalmVelocityInfo[0], i);
-                SETSYMBOL(&handPalmVelocityInfo[1], gensym("palm_velocity"));
-                SETFLOAT(&handPalmVelocityInfo[2], hand.palmVelocity().x);
-                SETFLOAT(&handPalmVelocityInfo[3], hand.palmVelocity().y);
-                SETFLOAT(&handPalmVelocityInfo[4], hand.palmVelocity().z);
-                ToOutAnything(1, gensym("hand"), 5, handPalmVelocityInfo);
+                SETFLOAT(&handInfo[0], i);
+                SETSYMBOL(&handInfo[1], gensym("palm_velocity"));
+                SETFLOAT(&handInfo[2], hand.palmVelocity().x);
+                SETFLOAT(&handInfo[3], hand.palmVelocity().y);
+                SETFLOAT(&handInfo[4], hand.palmVelocity().z);
+                ToOutAnything(1, gensym("hand"), 5, handInfo);
             }
             if(hands_palm_normal_flag){
                 // normal
-                t_atom handPalmNormalInfo[5];
-                SETFLOAT(&handPalmNormalInfo[0], i);
-                SETSYMBOL(&handPalmNormalInfo[1], gensym("palm_normal"));
-                SETFLOAT(&handPalmNormalInfo[2], hand.palmVelocity().x);
-                SETFLOAT(&handPalmNormalInfo[3], hand.palmVelocity().y);
-                SETFLOAT(&handPalmNormalInfo[4], hand.palmVelocity().z);
-                ToOutAnything(1, gensym("hand"), 5, handPalmNormalInfo);
+                SETFLOAT(&handInfo[0], i);
+                SETSYMBOL(&handInfo[1], gensym("palm_normal"));
+                SETFLOAT(&handInfo[2], hand.palmVelocity().x);
+                SETFLOAT(&handInfo[3], hand.palmVelocity().y);
+                SETFLOAT(&handInfo[4], hand.palmVelocity().z);
+                ToOutAnything(1, gensym("hand"), 5, handInfo);
             }
             if(hands_sphere_radius_flag){
                 // sphere radius
-                t_atom handSphereRadiusInfo[3];
-                SETFLOAT(&handSphereRadiusInfo[0], i);
-                SETSYMBOL(&handSphereRadiusInfo[1], gensym("sphere_radius"));
-                SETFLOAT(&handSphereRadiusInfo[2], hand.sphereRadius());
-                ToOutAnything(1, gensym("hand"), 3, handSphereRadiusInfo);
+                SETFLOAT(&handInfo[0], i);
+                SETSYMBOL(&handInfo[1], gensym("sphere_radius"));
+                SETFLOAT(&handInfo[2], hand.sphereRadius());
+                ToOutAnything(1, gensym("hand"), 3, handInfo);
             }
             if(hands_sphere_center_flag){
                 // sphere center
-                t_atom handSphereCenterInfo[5];
-                SETFLOAT(&handSphereCenterInfo[0], i);
-                SETSYMBOL(&handSphereCenterInfo[1], gensym("sphere_center"));
-                SETFLOAT(&handSphereCenterInfo[2], hand.sphereCenter().x);
-                SETFLOAT(&handSphereCenterInfo[3], hand.sphereCenter().y);
-                SETFLOAT(&handSphereCenterInfo[4], hand.sphereCenter().z);
-                ToOutAnything(1, gensym("hand"), 5, handSphereCenterInfo);
+                SETFLOAT(&handInfo[0], i);
+                SETSYMBOL(&handInfo[1], gensym("sphere_center"));
+                SETFLOAT(&handInfo[2], hand.sphereCenter().x);
+                SETFLOAT(&handInfo[3], hand.sphereCenter().y);
+                SETFLOAT(&handInfo[4], hand.sphereCenter().z);
+                ToOutAnything(1, gensym("hand"), 5, handInfo);
             }
             if(hands_finger_count_flag){
                 // finger count
-                t_atom fingerCountInfo[3];
-                SETFLOAT(&fingerCountInfo[0], i);
-                SETSYMBOL(&fingerCountInfo[1], gensym("finger_count"));
-                SETFLOAT(&fingerCountInfo[2], num_fingers);
-                ToOutAnything(1, gensym("hand"), 3, fingerCountInfo);
+                SETFLOAT(&handInfo[0], i);
+                SETSYMBOL(&handInfo[1], gensym("finger_count"));
+                SETFLOAT(&handInfo[2], num_fingers);
+                ToOutAnything(1, gensym("hand"), 3, handInfo);
             }
             if(hands_tool_count_flag){
                 // tool count
-                t_atom toolCountInfo[3];
-                SETFLOAT(&toolCountInfo[0], i);
-                SETSYMBOL(&toolCountInfo[1], gensym("tool_count"));
-                SETFLOAT(&toolCountInfo[2], num_tools);
-                ToOutAnything(1, gensym("hand"), 3, toolCountInfo);
+                SETFLOAT(&handInfo[0], i);
+                SETSYMBOL(&handInfo[1], gensym("tool_count"));
+                SETFLOAT(&handInfo[2], num_tools);
+                ToOutAnything(1, gensym("hand"), 3, handInfo);
             }
             for(int j = 0; j<num_fingers; j++){
                 Finger finger;
@@ -539,5 +532,3 @@ private:
 };
 
 FLEXT_NEW("leapmotion",leapmotion)
-
-
