@@ -75,6 +75,10 @@ public:
         FLEXT_ADDMETHOD_(0, "gestures", m_gestures);
         FLEXT_ADDMETHOD_(0, "info", m_info);
 
+        // Set policy flag so that patch can receive events from
+        // the controller even when the patch window is in background
+        controller.setPolicyFlags(Controller::POLICY_BACKGROUND_FRAMES);
+        
         // Have the sample listener receive events from the controller
         controller.addListener(dispatcher);
         general_flag = true;
