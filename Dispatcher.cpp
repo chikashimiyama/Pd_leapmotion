@@ -4,11 +4,12 @@
 using namespace Leap;
 
 void Dispatcher::onInit(const Controller& controller) {
-    post("Leap Motion for Pd by Chikashi Miyama Ver 0.1");
+    post("Leap Motion for Pd Ver 0.1.1 by Jakub Valtar");
+    post("    based on Ver 0.1 by Chikashi Miyama");
 }
 
 void Dispatcher::onConnect(const Controller& controller) {
-    post("Leap:connectd");
+    post("Leap:connected");
 }
 
 void Dispatcher::onDisconnect(const Controller& controller) {
@@ -16,7 +17,7 @@ void Dispatcher::onDisconnect(const Controller& controller) {
 }
 
 void Dispatcher::onExit(const Controller& controller) {
-    post("Leap:Exited");
+    post("Leap:exited");
 }
 
 void Dispatcher::onFrame(const Controller& controller) {

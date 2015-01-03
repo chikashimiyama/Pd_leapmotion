@@ -75,6 +75,10 @@ public:
         FLEXT_ADDMETHOD_(0, "gestures", m_gestures);
         FLEXT_ADDMETHOD_(0, "info", m_info);
 
+        // Set policy flag so that patch can receive events from
+        // the controller even when the patch window is in background
+        controller.setPolicyFlags(Controller::POLICY_BACKGROUND_FRAMES);
+        
         // Have the sample listener receive events from the controller
         controller.addListener(dispatcher);
         general_flag = true;
@@ -205,9 +209,9 @@ public:
                 // normal
                 SETFLOAT(&handInfo[0], i);
                 SETSYMBOL(&handInfo[1], gensym("palm_normal"));
-                SETFLOAT(&handInfo[2], hand.palmVelocity().x);
-                SETFLOAT(&handInfo[3], hand.palmVelocity().y);
-                SETFLOAT(&handInfo[4], hand.palmVelocity().z);
+                SETFLOAT(&handInfo[2], hand.palmNormal().x);
+                SETFLOAT(&handInfo[3], hand.palmNormal().y);
+                SETFLOAT(&handInfo[4], hand.palmNormal().z);
                 ToOutAnything(1, gensym("hand"), 5, handInfo);
             }
             if(hands_sphere_radius_flag){
