@@ -34,5 +34,3 @@ Makefile.am
 libLeap.dylib
 
 log.txt
-
-package.txt

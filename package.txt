@@ -1,0 +1,3 @@
+NAME=leapmotion
+SRCDIR=.
+SRCS=main.cpp Dispatcher.cpp
